@@ -81,7 +81,7 @@ const OrdensServico = () => {
       valor_total: totalValor,
       servicos: ItensOS
     }
-    const req = await fetch("http://localhost:8000/os", {
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/os", {
       method: "post",
       headers: {
         "content-type": "application/json"
@@ -109,7 +109,7 @@ const OrdensServico = () => {
       servicos: ItensOS,
       os_id: idEditar
     }
-    const req = await fetch(`http://localhost:8000/os/${idEditar}`, {
+    const req = await fetch(`https://lavajato-api-s4mb.onrender.com/os/${idEditar}`, {
       method: "put",
       headers: {
         "content-type": "application/json"
@@ -127,7 +127,7 @@ const OrdensServico = () => {
   }
 
   async function buscar() {
-    const req = await fetch("http://localhost:8000/os")
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/os")
     const res = await req.json()
     if (res.mensagem) {
       api[res.tipo]({
@@ -138,7 +138,7 @@ const OrdensServico = () => {
     setOrdemServico(res)
   }
   async function buscarClientes() {
-    const req = await fetch("http://localhost:8000/clientes")
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/clientes")
     const res = await req.json()
     if (res.mensagem) {
       api[res.tipo]({
@@ -149,7 +149,7 @@ const OrdensServico = () => {
     setCliente(res)
   }
   async function buscarServicos() {
-    const req = await fetch("http://localhost:8000/servicos")
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/servicos")
     const res = await req.json()
     if (res.mensagem) {
       api[res.tipo]({
@@ -167,7 +167,7 @@ const OrdensServico = () => {
       valor_pago: valorFinalizado,
       data_pagamento: dataFinalizada, 
     }
-    const req = await fetch("http://localhost:8000/pagamentos", {
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/pagamentos", {
       method: "post",
       headers: {"content-type": "application/json"},
       body: JSON.stringify(pagamento)
@@ -195,7 +195,7 @@ const OrdensServico = () => {
   async function deletar(id) {
     event.preventDefault()
 
-    const req = await fetch(`http://localhost:8000/os/${id}`, {
+    const req = await fetch(`https://lavajato-api-s4mb.onrender.com/os/${id}`, {
       method: "delete",
       headers: {
         "content-type": "application/json"

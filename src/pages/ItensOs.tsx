@@ -50,7 +50,7 @@ const ItensOs = () => {
       servicoId: servicoIdRef.current.value,
       quantidade: quantidadeRef.current.value,
     }
-    const req = await fetch("http://localhost:8000/ItensOs", {
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/ItensOs", {
       method: "post",
       headers: {
         "content-type": "application/json"
@@ -74,7 +74,7 @@ const ItensOs = () => {
         quantidade: quantidadeEditar,
           
       }
-      const req = await fetch(`http://localhost:8000/ItensOs/${osIdEditar}`, {
+      const req = await fetch(`https://lavajato-api-s4mb.onrender.com/ItensOs/${osIdEditar}`, {
         method: "put",
         headers: {
           "content-type": "application/json"
@@ -93,7 +93,7 @@ const ItensOs = () => {
     }
   
     async function buscar() {
-      const req = await fetch("http://localhost:8000/ItensOs")
+      const req = await fetch("https://lavajato-api-s4mb.onrender.com/ItensOs")
       const res = await req.json()
       if (res.mensagem) {
          api[res.tipo]({
@@ -110,7 +110,7 @@ const ItensOs = () => {
     async function deletar(id) {
       event.preventDefault()
   
-      const req = await fetch(`http://localhost:8000/ItensOs/${id}`, {
+      const req = await fetch(`https://lavajato-api-s4mb.onrender.com/ItensOs/${id}`, {
         method: "delete",
         headers: {
           "content-type": "application/json"

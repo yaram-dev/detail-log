@@ -44,7 +44,7 @@ const Pagamento = () => {
       data_pagamento: dataPagamentoRef.current.value
     };
 
-    const req = await fetch("http://localhost:8000/pagamentos", {
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/pagamentos", {
       method: "post",
       headers: {
         "content-type": "application/json"
@@ -70,7 +70,7 @@ const Pagamento = () => {
       valor_pago: valorPagoEditar,
       data_pagamento: dataPagamentoEditar,
     }
-    const req = await fetch(`http://localhost:8000pagamento/${idEditar}`, {
+    const req = await fetch(`https://lavajato-api-s4mb.onrender.compagamento/${idEditar}`, {
       method: "put",
       headers: {
         "content-type": "application/json"
@@ -88,7 +88,7 @@ const Pagamento = () => {
   }
 
   async function buscar() {
-    const req = await fetch("http://localhost:8000/pagamentos")
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/pagamentos")
     const res = await req.json()
     if (res.mensagem) {
       api[res.tipo]({
@@ -107,7 +107,7 @@ const Pagamento = () => {
   async function deletar(id) {
     event.preventDefault()
 
-    const req = await fetch(`http://localhost:8000/pagamentos/${id}`, {
+    const req = await fetch(`https://lavajato-api-s4mb.onrender.com/pagamentos/${id}`, {
       method: "delete",
       headers: {
         "content-type": "application/json"

@@ -35,7 +35,7 @@ const [data, setData] = useState(null);
     },
   ];
 async function buscar() {
-    const req = await fetch("http://localhost:8000/dashboard");
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/dashboard");
     const res = await req.json();
     if (!res) {
       api.error({

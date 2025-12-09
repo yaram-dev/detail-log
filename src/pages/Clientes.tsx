@@ -44,7 +44,7 @@ const Clientes = () => {
       endereco: enderecoRef.current.value,
       email: emailRef.current.value
     }
-    const req = await fetch("http://localhost:8000/clientes", {
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/clientes", {
       method: "post",
       headers: {
         "content-type": "application/json"
@@ -68,7 +68,7 @@ const Clientes = () => {
       enderco: enderecoEditar,
       email: emailEditar
     }
-    const req = await fetch(`http://localhost:8000/clientes/${idEditar}`, {
+    const req = await fetch(`https://lavajato-api-s4mb.onrender.com/clientes/${idEditar}`, {
       method: "put",
       headers: {
         "content-type": "application/json"
@@ -86,7 +86,7 @@ const Clientes = () => {
   }
 
   async function buscar() {
-    const req = await fetch("http://localhost:8000/clientes")
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/clientes")
     const res = await req.json()
     if (res.mensagem) {
       api[res.tipo]({
@@ -103,7 +103,7 @@ const Clientes = () => {
   async function deletar(id) {
     event.preventDefault()
 
-    const req = await fetch(`http://localhost:8000/clientes/${id}`, {
+    const req = await fetch(`https://lavajato-api-s4mb.onrender.com/clientes/${id}`, {
       method: "delete",
       headers: {
         "content-type": "application/json"
