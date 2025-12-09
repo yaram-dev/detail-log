@@ -1,36 +1,55 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { notification } from "antd";
 import { Users, Car, FileText, DollarSign } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
+const [data, setData] = useState(null);
+ const [api, contextHolder] = notification.useNotification({
+    placement: 'topRight',
+  });
   const stats = [
     {
       title: "Total de Clientes",
-      value: "0",
+      value: data ? data.clientes : "0",
       icon: Users,
       description: "Clientes cadastrados",
     },
     {
       title: "Veículos",
-      value: "0",
+      value: data ? data.veiculos : "0",
       icon: Car,
       description: "Veículos registrados",
     },
     {
       title: "Ordens Abertas",
-      value: "0",
+      value: data ? data.ordens : "0",
       icon: FileText,
       description: "Ordens em andamento",
     },
     {
       title: "Receita do Mês",
-      value: "R$ 0,00",
+      value: data ? `R$${data.faturamento.toFixed(2)}` : "R$0,00",
       icon: DollarSign,
       description: "Faturamento atual",
     },
   ];
-
+async function buscar() {
+    const req = await fetch("http://localhost:8000/dashboard");
+    const res = await req.json();
+    if (!res) {
+      api.error({
+        description: "Erro ao buscar dados do dashboard",
+        message: "aviso"
+      });
+      return
+    }
+    setData(res);
+  }
+useEffect(() => {buscar()},[]);
   return (
     <div className="space-y-6">
+      {contextHolder}
       <div>
         <h1 className="text-3xl font-bold text-foreground mb-2">Dashboard</h1>
         <p className="text-muted-foreground">
@@ -57,7 +76,7 @@ const Dashboard = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Bem-vindo ao Lava Jato Pro!</CardTitle>
+          <CardTitle>Bem-vindo ao Lava Jato!</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground mb-4">
