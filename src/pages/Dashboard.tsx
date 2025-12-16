@@ -29,7 +29,7 @@ const [data, setData] = useState(null);
     },
     {
       title: "Receita do Mês",
-      value: data ? `R$${data.faturamento.toFixed(2)}` : "R$0,00",
+      value: data ? `R$${data?.faturamento.toFixed(2)}` : "R$0,00",
       icon: DollarSign,
       description: "Faturamento atual",
     },
