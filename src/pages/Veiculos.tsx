@@ -54,7 +54,7 @@ const Veiculos = () => {
         cor: corRef.current.value,
         ano: anoRef.current.value
       }
-      const req = await fetch("https://lavajato-api-s4mb.onrender.com//veiculos", {
+      const req = await fetch("https://lavajato-api-s4mb.onrender.com/veiculos", {
         method: "post",
         headers: {
           "content-type": "application/json"
@@ -78,7 +78,7 @@ const Veiculos = () => {
         cor: corEditar,
         ano: anoEditar
       }
-      const req = await fetch(`https://lavajato-api-s4mb.onrender.com//veiculos/${idEditar}`, {
+      const req = await fetch(`https://lavajato-api-s4mb.onrender.com/veiculos/${idEditar}`, {
         method: "put",
         headers: {
           "content-type": "application/json"
@@ -96,7 +96,7 @@ const Veiculos = () => {
     }
   
     async function buscar() {
-      const req = await fetch("https://lavajato-api-s4mb.onrender.com//veiculos")
+      const req = await fetch("https://lavajato-api-s4mb.onrender.com/veiculos")
       const res = await req.json()
       if (res.mensagem) {
         api[res.tipo]({
@@ -108,7 +108,7 @@ const Veiculos = () => {
     }
 
     async function buscarClientes() {
-    const req = await fetch("https://lavajato-api-s4mb.onrender.com//clientes")
+    const req = await fetch("https://lavajato-api-s4mb.onrender.com/clientes")
     const res = await req.json()
     if (res.mensagem) {
       api[res.tipo]({
@@ -128,7 +128,7 @@ const Veiculos = () => {
     async function deletar(id) {
       event.preventDefault()
   
-      const req = await fetch(`https://lavajato-api-s4mb.onrender.com//veiculos/${id}`, {
+      const req = await fetch(`https://lavajato-api-s4mb.onrender.com/veiculos/${id}`, {
         method: "delete",
         headers: {
           "content-type": "application/json"
