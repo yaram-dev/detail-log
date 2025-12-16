@@ -46,8 +46,8 @@ const ItensOs = () => {
      async function criar() {
     event.preventDefault()
     let ItensOs = {
-      osId: osIdRef.current.value,
-      servicoId: servicoIdRef.current.value,
+      os_id: osIdRef.current.value,
+      servico_id: servicoIdRef.current.value,
       quantidade: quantidadeRef.current.value,
     }
     const req = await fetch("https://lavajato-api-s4mb.onrender.com/ItensOs", {
@@ -69,8 +69,8 @@ const ItensOs = () => {
   async function editar() {
       event.preventDefault()
       let ItensOs = {
-        osId: osIdEditar,
-        servicoId: servicoIdEditar,
+        os_id: osIdEditar,
+        servico_id: servicoIdEditar,
         quantidade: quantidadeEditar,
           
       }

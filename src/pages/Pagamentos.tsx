@@ -38,7 +38,7 @@ const Pagamento = () => {
     event.preventDefault()
 
     let pagamento = {
-      osId: osIdRef.current.value,
+      os_id: osIdRef.current.value,
       forma_pagamento: formaPagamentoRef.current.value,
       valor_pago: valorPagoRef.current.value,
       data_pagamento: dataPagamentoRef.current.value
@@ -65,12 +65,12 @@ const Pagamento = () => {
     event.preventDefault()
 
     let pagamento = {
-      osId: osIdEditar,
+      os_id: osIdEditar,
       forma_pagamento: formaPagamentoEditar,
       valor_pago: valorPagoEditar,
       data_pagamento: dataPagamentoEditar,
     }
-    const req = await fetch(`https://lavajato-api-s4mb.onrender.compagamento/${idEditar}`, {
+    const req = await fetch(`https://lavajato-api-s4mb.onrender.com/pagamento/${idEditar}`, {
       method: "put",
       headers: {
         "content-type": "application/json"
